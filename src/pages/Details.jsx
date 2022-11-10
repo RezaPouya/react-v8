@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import getPetQuery from "../http_requests/gets/getPet";
 import CachKeysConstants from "../constants/CachKeysConstants";
 import Carousel from "../components/classes/Carousel ";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const DetailsPages = () => {
   const { id } = useParams();
@@ -36,4 +37,11 @@ const DetailsPages = () => {
   );
 };
 
-export default DetailsPages;
+// replace export
+export default function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <DetailsPages {...props} />
+    </ErrorBoundary>
+  );
+}

@@ -4,6 +4,7 @@ import Results from "../components/Results";
 import useBreedList from "../hooks/useBreedList";
 import searchAnimals from "../http_requests/gets/searchAnimals";
 import CachKeysConstants from "../constants/CachKeysConstants";
+import ErrorBoundary from "../components/ErrorBoundary";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const IndexPage = () => {
@@ -80,4 +81,11 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+// replace export
+export default function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <IndexPage {...props} />
+    </ErrorBoundary>
+  );
+}
