@@ -47,11 +47,9 @@ const IndexPage = () => {
             name="animal"
             onChange={(e) => {
               setAnimal(e.target.value);
-              console.log("breeds ", breeds.length);
             }}
             onBlur={(e) => {
               setAnimal(e.target.value);
-              console.log("breeds ", breeds.length);
             }}
           >
             <option />
